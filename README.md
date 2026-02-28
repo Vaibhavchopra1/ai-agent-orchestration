@@ -88,33 +88,3 @@ curl -X POST http://localhost:8000/sessions/{session_id}/approve \
 # Get session state
 curl http://localhost:8000/sessions/{session_id}
 ```
-
-## Project Structure
-
-```
-ai-agent-orchestration/
-├── app/
-│   ├── main.py               # FastAPI app + routes
-│   ├── agents/
-│   │   ├── orchestrator.py   # Task decomposition & routing
-│   │   ├── research.py       # Web research agent
-│   │   ├── coder.py          # Code generation agent
-│   │   └── analyst.py        # Data analysis agent
-│   ├── tools/
-│   │   ├── registry.py       # Tool registry & discovery
-│   │   ├── web_search.py     # Web search tool
-│   │   ├── code_exec.py      # Sandboxed code execution
-│   │   └── calculator.py     # Math/computation tool
-│   ├── memory/
-│   │   ├── store.py          # Redis session store
-│   │   └── checkpointer.py   # LangGraph Redis checkpointer
-│   └── graph.py              # LangGraph StateGraph definition
-├── tests/
-│   ├── test_orchestrator.py
-│   ├── test_tools.py
-│   └── test_api.py
-├── docker-compose.yml
-├── Dockerfile
-├── requirements.txt
-└── .env.example
-```
